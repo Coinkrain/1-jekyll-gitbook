@@ -1,7 +1,7 @@
 ---
 title: Linked List
 author: Subhahu Jain
-date: 2023-01-02
+date: 2019-04-27
 category: Jekyll
 layout: post
 ---
