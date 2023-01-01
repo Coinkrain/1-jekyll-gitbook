@@ -2,7 +2,7 @@
 title: Page with cover image
 author: Tao He
 date: 2023-01-01
-category: Jekyll
+category: Algo
 layout: post
 cover: https://sighingnow.github.io/jekyll-gitbook/assets/dinosaur.gif
 ---
