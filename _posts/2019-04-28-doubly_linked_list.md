@@ -88,11 +88,6 @@ const containsFour = list.contains(4);  // containsFour = false
 ```
 
 
-> ##### TIP
->
-> No need to push generated HTML bundle.
-{: .block-tip }
-
 [1]: https://pages.github.com
 [2]: https://github.com/sighingnow/jekyll-gitbook/fork
 [3]: https://pages.github.com/themes
