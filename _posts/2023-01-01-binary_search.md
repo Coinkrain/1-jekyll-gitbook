@@ -1,8 +1,8 @@
 ---
-title: Page with cover image
+title: Binary Search
 author: Tao He
 date: 2023-01-01
-category: Algo
+category: Algorithm
 layout: post
 cover: https://sighingnow.github.io/jekyll-gitbook/assets/dinosaur.gif
 ---
