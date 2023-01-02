@@ -4,7 +4,6 @@ author: Tao He
 date: 2023-01-01
 category: Algorithm
 layout: post
-cover: https://sighingnow.github.io/jekyll-gitbook/assets/dinosaur.gif
 ---
 
 
