@@ -1,8 +1,8 @@
 ---
 title: Binary Tree
-author: Tao He
+author: Subhahu Jain
 date: 2019-04-29
-category: Jekyll
+category: Data-Structure
 layout: post
 ---
 
