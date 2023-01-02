@@ -8,7 +8,7 @@ layout: post
 
 A linked list is a linear data structure in which elements are stored in nodes, and each node points to the next node in the list. Here is an example of a linked list class in JavaScript:
 
-```java
+```javascript
 class LinkedList {
   constructor() {
     this.head = null;
