@@ -2,7 +2,7 @@
 title: Bloom filter
 author: Tao He
 date: 2023-01-01
-category: Algorithm
+category: Data-Structure
 layout: post
 ---
 
