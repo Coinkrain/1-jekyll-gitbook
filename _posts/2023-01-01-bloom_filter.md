@@ -55,6 +55,4 @@ console.log(filter.test("banana"));  // Output: false
 
 In this example, the BloomFilter class represents the filter itself, and has a size (the number of bits in the bit array), a number of hash functions to use, and a bit array to store the set. The add method is used to add an element to the set, and the test method is used to test for membership in the set. The _hash method is used to map an element to a position in the bit array using a hash function.
 
-I hope this helps! Let me know if you have any questions or need more information.
-
 
