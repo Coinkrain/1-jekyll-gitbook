@@ -15,21 +15,20 @@ The RedBlackTree class is a data structure that represents a red-black tree, whi
 
 Here is a list of the methods that are implemented in the RedBlackTree class:
 
-constructor(): This is the constructor function for the RedBlackTree class. It initializes an empty tree with a null root node.
+ - `constructor()`: This is the constructor function for the RedBlackTree class. It initializes an empty tree with a null root node.
 
-insert(value): This method inserts a new node with the specified value into the tree. It first creates a new RedBlackTreeNode object with the value and a color of red. Then it inserts the node into the tree by traversing the tree and finding the correct position for the new node based on its value. Finally, it calls the _fixInsert method to restore the balance of the tree after the insertion.
+ - `insert(value)`: This method inserts a new node with the specified value into the tree. It first creates a new RedBlackTreeNode object with the value and a color of red. Then it inserts the node into the tree by traversing the tree and finding the correct position for the new node based on its value. Finally, it calls the _fixInsert method to restore the balance of the tree after the insertion.
 
-_fixInsert(node): This method is used to fix the balance of the tree after inserting a new node. It starts at the new node and works its way up the tree, checking the balance at each node. If the new node's parent is red (which means the tree is unbalanced), it performs rotations and color changes to restore the balance of the tree.
+ - `_fixInsert(node)`: This method is used to fix the balance of the tree after inserting a new node. It starts at the new node and works its way up the tree, checking the balance at each node. If the new node's parent is red (which means the tree is unbalanced), it performs rotations and color changes to restore the balance of the tree.
 
-_rotateLeft(node): This method performs a left rotation on the tree at the specified node. It rearranges the nodes in the tree so that the specified node becomes the right child of its left child, and its left child becomes the parent of the specified node.
+ - `_rotateLeft(node)`: This method performs a left rotation on the tree at the specified node. It rearranges the nodes in the tree so that the specified node becomes the right child of its left child, and its left child becomes the parent of the specified node.
 
-_rotateRight(node): This method performs a right rotation on the tree at the specified node. It rearranges the nodes in the tree so that the specified node becomes the left child of its right child, and its right child becomes the parent of the specified node.
+ - `_rotateRight(node)`: This method performs a right rotation on the tree at the specified node. It rearranges the nodes in the tree so that the specified node becomes the left child of its right child, and its right child becomes the parent of the specified node.
 
 
 
 Here is an example of a simple red-black tree class in JavaScript:
 
-essage:
 
 ```js
 class RedBlackTreeNode {
