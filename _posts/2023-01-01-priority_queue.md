@@ -37,3 +37,9 @@ console.log(queue.dequeue());  // Output: "cherry"
 console.log(queue.dequeue());  // Output: "banana"
 console.log(queue.dequeue());  // Output: "apple"
 ```
+
+
+In this example, the `PriorityQueue` class represents the priority queue itself, and has an array to store the items. The `enqueue` method is used to add an item to the queue with a specified priority, and the `dequeue` method is used to remove the highest priority item from the queue. The queue is sorted using the built-in Array.sort method, which sorts the items in ascending order based on their priority.
+
+
+
