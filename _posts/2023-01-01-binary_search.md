@@ -35,4 +35,5 @@ const index = binarySearch(array, target);  // index = 2
 
 This function returns the index of the target element if it is found in the array, or -1 if it is not found.
 
-Note that this function assumes that the input array is already sorted in ascending order. If the array is not sorted, you will need to sort it first before performing the binary search.
+> Note that this function assumes that the input array is already sorted in ascending order. If the array is not sorted, you will need to sort it first  
+> before performing the binary search.
