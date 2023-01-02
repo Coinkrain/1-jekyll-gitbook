@@ -53,6 +53,8 @@ collections:
   pages:
     output: true
     permalink: /:collection/:path/
+  algo:
+    output: true
 
 page_width: 800px
 
