@@ -1,8 +1,8 @@
 ---
 title: Doubly Linked List
-author: Tao He
+author: Subhahu Jain
 date: 2019-04-28
-category: Jekyll
+category: Data-Structure
 layout: post
 ---
 
