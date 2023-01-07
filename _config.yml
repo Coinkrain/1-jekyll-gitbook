@@ -77,3 +77,4 @@ plugins:
   - jekyll-readme-index
   - jemoji
   - jekyll-sitemap
+  - jekyll-minifier
