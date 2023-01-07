@@ -21,11 +21,13 @@ let arr3 = new Array(5); // Creates an array of length 5
 let arr4 = [];
 let arr5 = [1, 2, 3];
 let arr6 = [1, "two", { three: 3 }];
+```
+
 You can access and modify the elements of an array using their index, which is the position of the element in the array. Arrays are zero-indexed, which means that the first element has an index of 0, the second element has an index of 1, and so on.
 
 Here are some examples of accessing and modifying the elements of an array in JavaScript:
 
-Copy code
+```js
 let arr = [1, 2, 3];
 
 // Accessing an element
