@@ -37,4 +37,4 @@ arr[0] = 10; // [10, 2, 3]
 arr[2] = "three"; // [10, 2, "three"]
 ```
 
-You can also use various array methods to manipulate the elements of an array, such as `push` to add an element to the end of the array, `pop` to remove the last element of the array, `shift` to remove the first element of the array, and `unshift` to add an element to the beginning of the array.
+You can also use various array methods to manipulate the elements of an array, such as `push` to add an element to the end of the array, `pop` to remove the last element of the array, `shift` to remove the first element of the array, and `unshift` to add an element to the beginning of the array.  :+1:!

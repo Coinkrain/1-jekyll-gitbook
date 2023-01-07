@@ -78,3 +78,8 @@ plugins:
   - jemoji
   - jekyll-sitemap
   - jekyll-minifier
+  - jemoji
+
+
+gems:
+  - jekyll-auto-image

@@ -10,6 +10,7 @@ gem 'jemoji'
 gem 'webrick'
 gem 'jekyll-sitemap'
 gem 'jekyll-minifier'
-
+gem 'jekyll-auto-image'
+gem 'jemoji'
 
 # gem "rails"
