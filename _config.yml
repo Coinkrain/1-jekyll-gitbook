@@ -80,7 +80,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-minifier
   - jemoji
-  - jekyll-news-sitemap
 
 
 gems:
