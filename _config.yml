@@ -55,6 +55,8 @@ collections:
     output: true
   algo:
     output: true
+  comparison:
+    output: true
   question:
     output: true
   pages:
