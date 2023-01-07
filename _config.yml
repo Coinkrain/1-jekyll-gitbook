@@ -66,6 +66,12 @@ destination:      ./_site
 incremental:      false
 regenerate:       true
 
+feed:
+  collections:
+    - ds
+    - algo
+    - question
+
 plugins:
   - jekyll-feed
   - jekyll-readme-index
