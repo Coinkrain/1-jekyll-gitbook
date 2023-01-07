@@ -52,6 +52,8 @@ exclude:
 collections:
   algo:
     output: true
+  question:
+    output: true
   pages:
     output: true
     permalink: /:collection/:path/
