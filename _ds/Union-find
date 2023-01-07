@@ -1,71 +1,46 @@
 ---
-title: Stack
-author: Tao He
+title: Union Find
+author: Subhahu Jain
 date: 2023-01-01
-category: Algorithm
+category: Data-Structure
 layout: post
 ---
 
 
-A stack is a Last In, First Out (LIFO) data structure. You can use an array to implement a stack in JavaScript. Here is an example of a stack class that uses an array to store the stack elements:
+
+Union-find, also known as disjoint-set, is a data structure that tracks a set of elements partitioned into a number of disjoint (non-overlapping) subsets. It supports two main operations: `find`, which returns the representative element (also known as the root) of the set that an element belongs to, and `union`, which merges two sets into a single set.
+
+Here is an example of a simple union-find class in JavaScript:
 
 ```js
-class Stack {
-  constructor() {
-    this.items = [];
+class UnionFind {
+  constructor(size) {
+    this.parent = new Array(size).fill(null).map((_, i) => i);
+    this.size = new Array(size).fill(1);
   }
 
-  push(item) {
-    this.items.push(item);
+  find(x) {
+    if (this.parent[x] !== x) {
+      this.parent[x] = this.find(this.parent[x]);
+    }
+    return this.parent[x];
   }
 
-  pop() {
-    return this.items.pop();
-  }
-
-  peek() {
-    return this.items[this.items.length - 1];
-  }
-
-  isEmpty() {
-    return this.items.length === 0;
-  }
-
-  size() {
-    return this.items.length;
+  union(x, y) {
+    let xRoot = this.find(x);
+    let yRoot = this.find(y);
+    if (xRoot === yRoot) {
+      return;
+    }
+    if (this.size[xRoot] < this.size[yRoot]) {
+      this.parent[xRoot] = yRoot;
+      this.size[yRoot] += this.size[xRoot];
+    } else {
+      this.parent[yRoot] = xRoot;
+      this.size[xRoot] += this.size[yRoot];
+    }
   }
 }
 ```
 
-To use this stack class, you can create a new instance and push elements onto the stack using the push method:
-
-```js
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-```
-
-You can remove elements from the top of the stack using the pop method:
-
-```js
-const popped = stack.pop();  // popped = 3
-```
-
-You can retrieve the element at the top of the stack without removing it using the peek method:
-
-```js
-const peeked = stack.peek();  // peeked = 2
-```
-
-You can check if the stack is empty using the isEmpty method:
-
-```js
-const empty = stack.isEmpty();  // empty = false
-```
-
-You can get the size of the stack using the size method:
-
-```js
-const size = stack.size();  // size = 2
-```
+In this example, the `UnionFind` class has a constructor that initializes a new union-find data structure with a given size, and two methods: `find` and `union`. The `find` method returns the representative element of the set that an element belongs to, using path compression to improve the time complexity, and the `union` method merges two sets into a single set by updating the parent of one of the roots and adjusting the size of the resulting set.

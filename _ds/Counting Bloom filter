@@ -1,71 +1,57 @@
 ---
-title: Stack
-author: Tao He
+title: Counting Bloom Filter
+author: Subhahu Jain
 date: 2023-01-01
-category: Algorithm
+category: Data-Structure
 layout: post
 ---
 
 
-A stack is a Last In, First Out (LIFO) data structure. You can use an array to implement a stack in JavaScript. Here is an example of a stack class that uses an array to store the stack elements:
+A counting Bloom filter is a variant of the Bloom filter data structure that allows for the insertion, deletion, and membership testing of elements, while providing a probabilistic guarantee of the number of elements stored in the filter. It works by using multiple hash functions to map elements to a fixed-size bit array, and storing the count of how many times an element has been inserted into each position in the array.
+
+Here is an example of a simple counting Bloom filter class in JavaScript:
 
 ```js
-class Stack {
-  constructor() {
-    this.items = [];
+class CountingBloomFilter {
+  constructor(size, hashCount) {
+    this.size = size;
+    this.hashCount = hashCount;
+    this.counts = new Array(size).fill(0);
   }
 
-  push(item) {
-    this.items.push(item);
+  insert(element) {
+    for (let i = 0; i < this.hashCount; i++) {
+      let index = this._hash(element, i);
+      this.counts[index]++;
+    }
   }
 
-  pop() {
-    return this.items.pop();
+  delete(element) {
+    for (let i = 0; i < this.hashCount; i++) {
+      let index = this._hash(element, i);
+      this.counts[index]--;
+    }
   }
 
-  peek() {
-    return this.items[this.items.length - 1];
+  test(element) {
+    for (let i = 0; i < this.hashCount; i++) {
+      let index = this._hash(element, i);
+      if (this.counts[index] <= 0) {
+        return false;
+      }
+    }
+    return true;
   }
 
-  isEmpty() {
-    return this.items.length === 0;
-  }
-
-  size() {
-    return this.items.length;
+  _hash(element, seed) {
+    let hash = 0;
+    for (let i = 0; i < element.length; i++) {
+      hash = (hash + element.charCodeAt(i) + seed) % this.size;
+    }
+    return hash;
   }
 }
 ```
 
-To use this stack class, you can create a new instance and push elements onto the stack using the push method:
+In this example, the `CountingBloomFilter` class has a constructor that initializes a new counting Bloom filter with a given size and number of hash functions, and four methods: `insert`, `delete`, `test`, and `_hash`. The `insert` and `delete` methods add or remove an element from the filter, respectively, by incrementing or decrementing the count at each position in the array that the element maps to. The `test` method returns `true` if an element is probably in the filter, or `false` otherwise, based on the counts at the positions in the array that the element maps to. The `_hash` method is a helper function that maps an element to a position in the array using a given seed value for the hash function.
 
-```js
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-```
-
-You can remove elements from the top of the stack using the pop method:
-
-```js
-const popped = stack.pop();  // popped = 3
-```
-
-You can retrieve the element at the top of the stack without removing it using the peek method:
-
-```js
-const peeked = stack.peek();  // peeked = 2
-```
-
-You can check if the stack is empty using the isEmpty method:
-
-```js
-const empty = stack.isEmpty();  // empty = false
-```
-
-You can get the size of the stack using the size method:
-
-```js
-const size = stack.size();  // size = 2
-```

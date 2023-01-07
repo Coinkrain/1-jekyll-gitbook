@@ -1,71 +1,44 @@
 ---
-title: Stack
-author: Tao He
+title: Fenwick Tree
+author: Subhahu Jain
 date: 2023-01-01
-category: Algorithm
+category: Data-Structure
 layout: post
 ---
 
 
-A stack is a Last In, First Out (LIFO) data structure. You can use an array to implement a stack in JavaScript. Here is an example of a stack class that uses an array to store the stack elements:
+
+A Fenwick tree, also known as a binary indexed tree, is a data structure that allows for efficient calculation and modification of prefix sums in an array. It works by representing the array as a tree, where each node stores the sum of the values in its subtree, and the parent of a node at index i is the node at index i & -i, which is the least significant 1-bit in the binary representation of i.
+
+Here is an example of a simple Fenwick tree class in JavaScript:
 
 ```js
-class Stack {
-  constructor() {
-    this.items = [];
+class FenwickTree {
+  constructor(arr) {
+    this.tree = new Array(arr.length + 1).fill(0);
+    for (let i = 0; i < arr.length; i++) {
+      this.update(i, arr[i]);
+    }
   }
 
-  push(item) {
-    this.items.push(item);
+  update(index, value) {
+    index++;
+    while (index < this.tree.length) {
+      this.tree[index] += value;
+      index += index & -index;
+    }
   }
 
-  pop() {
-    return this.items.pop();
-  }
-
-  peek() {
-    return this.items[this.items.length - 1];
-  }
-
-  isEmpty() {
-    return this.items.length === 0;
-  }
-
-  size() {
-    return this.items.length;
+  query(index) {
+    let sum = 0;
+    index++;
+    while (index > 0) {
+      sum += this.tree[index];
+      index -= index & -index;
+    }
+    return sum;
   }
 }
 ```
 
-To use this stack class, you can create a new instance and push elements onto the stack using the push method:
-
-```js
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-```
-
-You can remove elements from the top of the stack using the pop method:
-
-```js
-const popped = stack.pop();  // popped = 3
-```
-
-You can retrieve the element at the top of the stack without removing it using the peek method:
-
-```js
-const peeked = stack.peek();  // peeked = 2
-```
-
-You can check if the stack is empty using the isEmpty method:
-
-```js
-const empty = stack.isEmpty();  // empty = false
-```
-
-You can get the size of the stack using the size method:
-
-```js
-const size = stack.size();  // size = 2
-```
+In this example, the `FenwickTree` class has a constructor that initializes a new Fenwick tree with a given array of values, and two methods: `update` and `query`. The `update` method modifies the value at a given index in the original array and updates the tree accordingly, and the `query` method returns the sum of the values in the original array up to a given index.

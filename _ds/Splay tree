@@ -1,71 +1,180 @@
 ---
-title: Stack
-author: Tao He
+title: Splay Tree
+author: Subhahu Jain
 date: 2023-01-01
-category: Algorithm
+category: Data-Structure
 layout: post
 ---
 
 
-A stack is a Last In, First Out (LIFO) data structure. You can use an array to implement a stack in JavaScript. Here is an example of a stack class that uses an array to store the stack elements:
+
+
+A splay tree is a self-balancing binary search tree that stores data in a sorted and searchable manner. It works by "splaying" the accessed elements to the root of the tree, so that frequently accessed elements are closer to the root and can be found more quickly in the future. This property allows the tree to have amortized logarithmic time complexity for the most common operations, such as search, insert, and delete.
+
+Here is an example of a simple splay tree class in JavaScript:
+
+
 
 ```js
-class Stack {
-  constructor() {
-    this.items = [];
-  }
+class SplayTree {
+    constructor() {
+        this.root = null;
+    }
 
-  push(item) {
-    this.items.push(item);
-  }
+    insert(value) {
+        if (this.root === null) {
+            this.root = {
+                value,
+                left: null,
+                right: null
+            };
+            return;
+        }
+        let current = this.root;
+        while (true) {
+            if (value < current.value) {
+                if (current.left === null) {
+                    current.left = {
+                        value,
+                        left: null,
+                        right: null
+                    };
+                    this._splay(current.left);
+                    break;
+                } else {
+                    current = current.left;
+                }
+            } else {
+                if (current.right === null) {
+                    current.right = {
+                        value,
+                        left: null,
+                        right: null
+                    };
+                    this._splay(current.right);
+                    break;
+                } else {
+                    current = current.right;
+                }
+            }
+        }
+    }
 
-  pop() {
-    return this.items.pop();
-  }
+    search(value) {
+        let current = this.root;
+        while (current) {
+            if (value === current.value) {
+                this._splay(current);
+                return true;
+            } else if (value < current.value) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return false;
+    }
 
-  peek() {
-    return this.items[this.items.length - 1];
-  }
+    delete(value) {
+        if (this.root === null) {
+            return;
+        }
+        this.search(value);
+        if (this.root.value !== value) {
+            return;
+        }
+        if (this.root.left === null) {
+            this.root = this.root.right;
+        } else {
+            let right = this.root.right;
+            this.root = this.root.left;
+            this.search(value);
+            this.root.right = right;
+        }
+    }
 
-  isEmpty() {
-    return this.items.length === 0;
-  }
+    _splay(node) {
+        while (node !== this.root) {
+            let parent = this._parent(node);
+            if (parent === this.root) {
+                if (parent.left === node) {
+                    this._rotateRight(parent);
+                } else {
+                    this._rotateLeft(parent);
+                }
+            } else {
+                let grandParent = this._parent(parent);
+                if (grandParent.left === parent) {
+                    if (parent.left === node) {
+                        this._rotateRight(grandParent);
+                        this._rotateRight(parent);
+                    } else {
+                        this._rotateLeft(parent);
+                        this._rotateRight(grandParent);
+                    }
+                } else {
+                    if (parent.left === node) {
+                        this._rotateRight(parent);
+                        this._rotateLeft(grandParent);
+                    } else {
+                        this._rotateLeft(grandParent);
+                        this._rotateLeft(parent);
+                    }
+                }
+            }
+        }
+    }
 
-  size() {
-    return this.items.length;
-  }
+
+
+    _parent(node) {
+        if (node === this.root) {
+            return null;
+        }
+        let current = this.root;
+        while (current.left !== node && current.right !== node) {
+            if (current.value > node.value) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return current;
+    }
+
+    _rotateLeft(node) {
+        let right = node.right;
+        node.right = right.left;
+        right.left = node;
+        if (node === this.root) {
+            this.root = right;
+        } else {
+            let parent = this._parent(node);
+            if (parent.left === node) {
+                parent.left = right;
+            } else {
+                parent.right = right;
+            }
+        }
+    }
+
+    _rotateRight(node) {
+        let left = node.left;
+        node.left = left.right;
+        left.right = node;
+        if (node === this.root) {
+            this.root = left;
+        } else {
+            let parent = this._parent(node);
+            if (parent.left === node) {
+                parent.left = left;
+            } else {
+                parent.right = left;
+            }
+        }
+    }
+
 }
 ```
 
-To use this stack class, you can create a new instance and push elements onto the stack using the push method:
 
-```js
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-```
-
-You can remove elements from the top of the stack using the pop method:
-
-```js
-const popped = stack.pop();  // popped = 3
-```
-
-You can retrieve the element at the top of the stack without removing it using the peek method:
-
-```js
-const peeked = stack.peek();  // peeked = 2
-```
-
-You can check if the stack is empty using the isEmpty method:
-
-```js
-const empty = stack.isEmpty();  // empty = false
-```
-
-You can get the size of the stack using the size method:
-
-```js
-const size = stack.size();  // size = 2
-```
