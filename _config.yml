@@ -50,11 +50,11 @@ exclude:
   - _drafts
 
 collections:
+  algo:
+    output: true
   pages:
     output: true
     permalink: /:collection/:path/
-  algo:
-    output: true
 
 page_width: 800px
 
