@@ -50,6 +50,8 @@ exclude:
   - _drafts
 
 collections:
+  ds:
+    output: true
   algo:
     output: true
   question:
