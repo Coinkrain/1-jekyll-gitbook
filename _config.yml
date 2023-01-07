@@ -81,6 +81,7 @@ plugins:
   - jemoji
   - jekyll-sitemap
   - jekyll-minifier
+  - jekyll-seo-tag
 
 
 gems:
