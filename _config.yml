@@ -2,6 +2,7 @@
 title:            Jsalgo.tech
 longtitle:        Jsalgo.tech
 author:           Subhahu Jain
+publisher:        "JSAlgo Tech"
 email:            admin@techlinks.in
 description: >
   Algorithm And Data Structure in Javascript
@@ -79,6 +80,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-minifier
   - jemoji
+  - jekyll-news-sitemap
 
 
 gems:

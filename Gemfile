@@ -12,5 +12,6 @@ gem 'jekyll-sitemap'
 gem 'jekyll-minifier'
 gem 'jekyll-auto-image'
 gem 'jemoji'
+gem 'jekyll-news-sitemap'
 
 # gem "rails"
