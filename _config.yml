@@ -2,10 +2,9 @@
 title:            Jsalgo.tech
 longtitle:        Jsalgo.tech
 author:           Subhahu Jain
-publisher:        "JSAlgo Tech"
+publisher:        "JsAlgo Tech"
 email:            admin@techlinks.in
-description: >
-  Algorithm And Data Structure in Javascript
+description:      "Learn the fundamentals of algorithms and data structures in JavaScript. Master key concepts such as sorting algorithms, search algorithms, and popular data structures like linked lists, trees, and graphs."
 
 version:          1.0
 gitbook_version:  3.2.3
